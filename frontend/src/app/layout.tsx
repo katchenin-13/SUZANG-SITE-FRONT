@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, Geist } from "next/font/google";
+import { Raleway } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { Header } from "@/components/organisms/Header";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
-
-const inter = Inter({
-  variable: "--font-inter",
+const raleway = Raleway({
   subsets: ["latin"],
 });
 
@@ -21,8 +19,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={cn(inter.variable, "font-sans", geist.variable)}>
-      <body className="font-sans">
+    <html lang="fr" className={raleway.className}>
+      <body className="bg-black">
+        <Header />
         {children}
       </body>
     </html>
