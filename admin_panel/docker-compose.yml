@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: suzang_postgres
+    environment:
+      POSTGRES_USER: suzang_user
+      POSTGRES_PASSWORD: suzang_password
+      POSTGRES_DB: suzang_db
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: always
+
+volumes:
+  pgdata:
