@@ -74,7 +74,7 @@ export function Header() {
                    <NavigationMenuLink
                     render={<Link href={link.href} />}
                     active={isActive}
-                    className={`flex items-center justify-center py-2 px-2 xl:px-2 text-[26px] font-bold text-white hover:border-white whitespace-nowrap transition-all duration-300 hover:text-[#f9b442] focus:text-[#f9b442] bg-transparent hover:bg-transparent focus:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent data-[active]:text-[#f9b442] data-[active]:underline data-[active]:underline-offset-[6px] data-[active]:decoration-1 outline-none ring-0 border border-transparent rounded-md`}
+                    className={`flex items-center justify-center py-2 px-2 xl:px-2 text-[26px] font-bold text-white hover:border-white whitespace-nowrap transition-all duration-300 hover:text-[#f9b442] focus:text-[#f9b442] !bg-transparent hover:!bg-transparent focus:!bg-transparent data-[active]:!bg-transparent data-[state=open]:!bg-transparent data-[active]:text-[#f9b442] data-[active]:underline data-[active]:underline-offset-[6px] data-[active]:decoration-1 outline-none ring-0 border border-transparent rounded-md`}
                   >
                     {link.name}
                   </NavigationMenuLink>
