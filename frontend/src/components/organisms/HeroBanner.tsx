@@ -31,8 +31,8 @@ export function HeroBanner() {
       </div>
 
       {/* Bottom Slogan */}
-      <div className="absolute bottom-10 left-0 right-0 z-10 flex justify-center w-full">
-        <h2 className="text-[#f9b442] text-[36px] md:text-[48px] font-sans font-bold uppercase tracking-widest text-center drop-shadow-2xl">
+      <div className="absolute bottom-10 left-0 right-0 z-10 flex justify-center w-full px-4">
+        <h2 className="text-[#f9b442] text-[22px] sm:text-[28px] md:text-[48px] font-sans font-bold uppercase tracking-widest text-center drop-shadow-2xl">
           Se poser sans s'imposer
         </h2>
       </div>

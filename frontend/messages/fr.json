@@ -1,0 +1,16 @@
+{
+  "Header": {
+    "accueil": "Accueil",
+    "presentation": "Présentation",
+    "atouts": "Atouts",
+    "services": "Services",
+    "clients": "Clients",
+    "carriere": "Carrière",
+    "contacts": "Contacts"
+  },
+  "About": {
+    "title": "LES CHASSEURS RELÂCHÉS DANS LA VILLE",
+    "description": "Nous sommes SUZANG GROUP, nous sortons du bois sacré. Une armée de chasseurs initiés aux arts de la guérilla urbaine. Nous chassons le consommateur, traquons ses attentes, reniflons ses besoins. Depuis 2014 nous pistons les tendances des marchés, pour accrocher le succès à votre tableau de chasse. \"Si nous traquons le gibier c'est pour l'accrocher à votre tableau.\"",
+    "button": "En savoir plus"
+  }
+}

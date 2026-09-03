@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, usePathname } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
 import {
   NavigationMenu,
@@ -10,19 +10,22 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-
-const navLinks = [
-  { name: "Accueil", href: "/" },
-  { name: "Présentation", href: "/presentation" },
-  { name: "Atouts", href: "#" },
-  { name: "Services", href: "#" },
-  { name: "Clients", href: "#" },
-  { name: "Carriere", href: "#" },
-  { name: "Contacts", href: "#" },
-];
+import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 
 export function Header() {
+  const t = useTranslations('Header');
   const pathname = usePathname();
+
+  const navLinks = [
+    { name: t('accueil'), href: "/" },
+    { name: t('presentation'), href: "/presentation" },
+    { name: t('atouts'), href: "/atouts" },
+    { name: t('services'), href: "/services" },
+    { name: t('clients'), href: "/clients" },
+    { name: t('carriere'), href: "/carriere" },
+    { name: t('contacts'), href: "/contacts" },
+  ];
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -44,10 +47,12 @@ export function Header() {
     }
   }, [isMobileMenuOpen]);
 
+
+
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 w-full py-6 px-4 md:px-10 xl:px-[120px] flex items-center justify-between transition-colors duration-300 ${isScrolled || isMobileMenuOpen ? 'bg-black/95 shadow-xl' : 'bg-gradient-to-b from-black/80 to-transparent'}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 w-full py-3 md:py-6 px-4 md:px-10 xl:px-[120px] flex items-center justify-between transition-colors duration-300 ${isScrolled || isMobileMenuOpen || pathname !== '/' ? 'bg-black/95 shadow-xl' : 'bg-gradient-to-b from-black/80 to-transparent'}`}>
       {/* Logo */}
-      <Link href="/" className="relative h-[150px] w-[300px] shrink-0 z-50" onClick={() => setIsMobileMenuOpen(false)}>
+      <Link href="/" className="relative h-[60px] w-[140px] md:h-[100px] md:w-[200px] lg:h-[150px] lg:w-[300px] shrink-0 z-50" onClick={() => setIsMobileMenuOpen(false)}>
         <Image
           src="/images/logo.png"
           alt="Suzang Group"
@@ -66,10 +71,10 @@ export function Header() {
 
               return (
                 <NavigationMenuItem key={link.name}>
-                  <NavigationMenuLink
+                   <NavigationMenuLink
                     render={<Link href={link.href} />}
                     active={isActive}
-                    className="flex items-center justify-center py-2 px-2 xl:px-2 text-[26px] font-bold text-white whitespace-nowrap transition-all duration-300 hover:text-[#f9b442] focus:text-[#f9b442] bg-transparent hover:bg-transparent focus:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent data-[active]:text-[#f9b442] data-[active]:underline data-[active]:underline-offset-[6px] data-[active]:decoration-1 outline-none ring-0 border border-transparent hover:border-white rounded-md"
+                    className={`flex items-center justify-center py-2 px-2 xl:px-2 text-[26px] font-bold text-white hover:border-white whitespace-nowrap transition-all duration-300 hover:text-[#f9b442] focus:text-[#f9b442] bg-transparent hover:bg-transparent focus:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent data-[active]:text-[#f9b442] data-[active]:underline data-[active]:underline-offset-[6px] data-[active]:decoration-1 outline-none ring-0 border border-transparent rounded-md`}
                   >
                     {link.name}
                   </NavigationMenuLink>
@@ -80,14 +85,12 @@ export function Header() {
         </NavigationMenu>
       </div>
 
-      {/* FR Button (Desktop) */}
-      <div className="hidden lg:flex shrink-0 items-center text-white font-bold text-[18px] px-4 py-2 rounded bg-[#4a4a4a] hover:bg-[#5a5a5a] cursor-pointer transition-all duration-300 mt-6 ml-auto">
-        <span>FR <span className="text-[14px] ml-1">▼</span></span>
-      </div>
+      {/* Language Switcher (Desktop) */}
+      <LanguageSwitcher />
 
       {/* Mobile Menu Toggle Button */}
       <button 
-        className="lg:hidden text-white p-2 z-50 mt-4 focus:outline-none"
+        className={`lg:hidden p-2 z-50 mt-4 focus:outline-none transition-colors text-white`}
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         aria-label="Toggle Menu"
       >
@@ -113,12 +116,8 @@ export function Header() {
               </Link>
             ))}
             
-            {/* FR Button in Mobile Menu */}
-            <div className="mt-8 flex justify-center">
-              <div className="flex items-center text-white font-bold text-[20px] px-8 py-3 rounded-md bg-[#4a4a4a] hover:bg-[#f9b442] hover:text-black cursor-pointer transition-all duration-300">
-                <span>FR <span className="text-[16px] ml-2">▼</span></span>
-              </div>
-            </div>
+            {/* Language Switcher in Mobile Menu */}
+            <LanguageSwitcher isMobile={true} />
           </nav>
         </div>
       )}

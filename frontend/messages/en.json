@@ -1,0 +1,16 @@
+{
+  "Header": {
+    "accueil": "Home",
+    "presentation": "Presentation",
+    "atouts": "Assets",
+    "services": "Services",
+    "clients": "Clients",
+    "carriere": "Career",
+    "contacts": "Contacts"
+  },
+  "About": {
+    "title": "THE HUNTERS RELEASED IN THE CITY",
+    "description": "We are SUZANG GROUP, emerging from the sacred woods. An army of hunters initiated in the arts of urban guerrilla warfare. We hunt the consumer, track their expectations, sniff out their needs. Since 2014, we have been tracking market trends to pin success to your hunting board. \"If we track the game, it's to hang it on your board.\"",
+    "button": "Learn more"
+  }
+}
